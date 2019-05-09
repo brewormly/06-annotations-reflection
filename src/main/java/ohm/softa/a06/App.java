@@ -26,11 +26,14 @@ public class App {
 			.addConverterFactory(GsonConverterFactory.create(responseGson))
 			.build();
 		ICNDBApi service = retrofit.create(ICNDBApi.class);
-		Call<Joke> call = service.getRandomJoke();
+		//Call<Joke> call = service.getRandomJoke();
+		Call<Joke> call = service.getRandomJoke(new String[]{"nerdy"});
 		Response<Joke> jokeResponse = call.execute();
 
 		Joke lol = jokeResponse.body();
 		System.out.println(lol);
+
+
 
 	}
 
